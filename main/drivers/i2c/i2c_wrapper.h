@@ -20,18 +20,5 @@
 #define ACK_VAL                 0x0              /*!< I2C ack value */
 #define NACK_VAL                0x1              /*!< I2C nack value */     
 
-void i2c_master_init()
-{
-    int i2c_master_port = I2C_PORT_NUM;
-    i2c_config_t conf;
-    conf.mode = I2C_MODE_MASTER;
-    conf.sda_io_num = I2C_SDA_IO;
-    conf.sda_pullup_en = GPIO_PULLUP_ENABLE;
-    conf.scl_io_num = I2C_SCL_IO;
-    conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
-    conf.master.clk_speed = I2C_FREQ_HZ;
-    i2c_param_config(i2c_master_port, &conf);
-
-    i2c_driver_install(i2c_master_port, conf.mode,
-    		I2C_RX_BUF_DISABLE, I2C_TX_BUF_DISABLE, 0);
-}
+void i2c_master_init(i2c_port_t i2c_num);
+esp_err_t i2c_master_read_slave_reg(i2c_port_t i2c_num, uint8_t i2c_addr, uint8_t i2c_reg, uint8_t* data_rd, size_t size);
