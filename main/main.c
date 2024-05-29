@@ -12,13 +12,8 @@
 #include "cmd_nvs.h"
 
 
-
-
-static const char *TAG = "dof9";
-
 void app_main(void)
 {
-
     esp_console_repl_t *repl = NULL;
     esp_console_repl_config_t repl_config = ESP_CONSOLE_REPL_CONFIG_DEFAULT();
     /* Prompt to be printed before each line.
@@ -44,6 +39,7 @@ void app_main(void)
     while (true) {
         //printf("Hello from app_main!\n");
         //i2c_master_read_slave_reg(I2C_PORT_NUM, 0x68, 0x75, 0x00, 1);
+        i2c_master_test_send();
         sleep(1);
     }
 }
