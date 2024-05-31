@@ -22,4 +22,5 @@
 
 void i2c_master_init(i2c_port_t i2c_num);
 void i2c_master_test_send(void);
+void i2c_master_read_test(void);
 esp_err_t i2c_master_read_slave_reg(i2c_port_t i2c_num, uint8_t i2c_addr, uint8_t i2c_reg, uint8_t* data_rd, size_t size);
